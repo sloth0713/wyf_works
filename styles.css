@@ -5,107 +5,366 @@
     box-sizing: border-box;
 }
 
+:root {
+    --primary-color: #3a6ea5;
+    --secondary-color: #2c3e50;
+    --accent-color: #e74c3c;
+    --light-color: #f8f9fa;
+    --dark-color: #333;
+    --gray-color: #6c757d;
+    --border-color: #eaeaea;
+    --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
+    --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
+    --transition: all 0.3s ease;
+}
+
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Noto Sans SC', 'Helvetica Neue', Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
+    color: var(--dark-color);
+    background-color: var(--light-color);
+    transition: var(--transition);
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+}
+
+body.loaded {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 header {
-    background-color: #4a6fa5;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
     color: white;
     text-align: center;
-    padding: 2rem 0;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    padding: 3rem 0;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-md);
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0.6;
+    animation: rotate 30s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
 }
 
 header h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    animation: slideDown 0.8s ease;
+}
+
+header .tagline {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    letter-spacing: 2px;
+    animation: slideUp 0.8s ease 0.2s forwards;
+    opacity: 0;
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+    animation: fadeIn 1s ease;
 }
 
-.portfolio-section {
+section {
+    animation: fadeIn 0.8s ease;
+    transition: var(--transition);
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+.portfolio-section, .about-section {
     background-color: white;
-    border-radius: 8px;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-radius: 12px;
+    padding: 2.5rem;
+    margin-bottom: 2.5rem;
+    box-shadow: var(--shadow-md);
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
 }
 
-.portfolio-section h2 {
-    color: #4a6fa5;
-    margin-bottom: 1.5rem;
-    border-bottom: 2px solid #eaeaea;
-    padding-bottom: 0.5rem;
+.portfolio-section:hover, .about-section:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.portfolio-section h2, .about-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 1.8rem;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.8rem;
+    font-size: 1.8rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.portfolio-section h2 i, .about-section h2 i {
+    color: var(--accent-color);
 }
 
 .portfolio-item {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+    animation: fadeIn 1s ease;
+}
+
+.portfolio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .portfolio-item h3 {
-    color: #2c3e50;
+    color: var(--secondary-color);
     margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.portfolio-item p {
-    margin-bottom: 1rem;
-    color: #555;
+.portfolio-tags {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.tag {
+    background-color: rgba(58, 110, 165, 0.1);
+    color: var(--primary-color);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.tag:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.portfolio-description {
+    margin-bottom: 1.5rem;
+    color: var(--gray-color);
+    line-height: 1.8;
+    font-size: 1.05rem;
 }
 
 .pdf-container {
     margin: 1.5rem 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
     overflow: hidden;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
 }
 
-.download-button {
-    margin: 1rem 0;
+.pdf-container:hover {
+    box-shadow: var(--shadow-lg);
 }
 
-.download-button a {
-    display: inline-block;
-    background-color: #4a6fa5;
+.pdf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 0.8rem 1rem;
+}
+
+.pdf-title {
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.pdf-controls {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.control-btn {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.control-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+    flex-wrap: wrap;
+}
+
+.download-button, .share-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--primary-color);
     color: white;
     padding: 0.75rem 1.5rem;
     text-decoration: none;
-    border-radius: 4px;
-    font-weight: bold;
-    transition: background-color 0.3s;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    font-family: inherit;
+    box-shadow: var(--shadow-sm);
 }
 
-.download-button a:hover {
-    background-color: #3a5a80;
+.download-button:hover, .share-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.share-button {
+    background-color: var(--accent-color);
+}
+
+.share-button:hover {
+    background-color: #c0392b;
+}
+
+.about-section {
+    background-color: white;
+}
+
+.about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.about-content p {
+    color: var(--gray-color);
+    line-height: 1.8;
+    font-size: 1.05rem;
 }
 
 footer {
     text-align: center;
-    padding: 1.5rem 0;
-    background-color: #2c3e50;
+    padding: 2rem 0;
+    background-color: var(--secondary-color);
     color: #ecf0f1;
-    margin-top: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 -5px 10px rgba(0,0,0,0.05);
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.footer-social {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    color: white;
+    font-size: 1.2rem;
+    transition: var(--transition);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
 }
 
 /* 响应式设计 */
 @media (max-width: 768px) {
     header {
-        padding: 1.5rem 0;
+        padding: 2rem 0;
     }
     
     header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem;
     }
     
     .pdf-container iframe {
         height: 400px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .portfolio-header {
+        flex-direction: column;
+        align-items: flex-start;
     }
 }
 
@@ -114,11 +373,24 @@ footer {
         padding: 0 1rem;
     }
     
-    .portfolio-section {
+    header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .portfolio-section, .about-section {
         padding: 1.5rem;
     }
     
     .pdf-container iframe {
         height: 300px;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+    }
+    
+    .download-button, .share-button {
+        width: 100%;
+        justify-content: center;
     }
 }

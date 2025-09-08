@@ -5,28 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>我的作品集</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
-        <h1>我的作品集</h1>
+        <div class="header-content">
+            <h1><i class="fas fa-book-open"></i> 我的作品集</h1>
+            <p class="tagline">创意 · 专业 · 品质</p>
+        </div>
     </header>
     <main>
         <section class="portfolio-section">
-            <h2>作品展示</h2>
+            <h2><i class="fas fa-trophy"></i> 作品展示</h2>
             <div class="portfolio-item">
-                <h3>作品集文档</h3>
-                <p>这是我的作品集PDF文档，展示了我的项目和技能。</p>
+                <div class="portfolio-header">
+                    <h3><i class="fas fa-file-pdf"></i> 作品集文档</h3>
+                    <div class="portfolio-tags">
+                        <span class="tag">专业</span>
+                        <span class="tag">创意</span>
+                        <span class="tag">设计</span>
+                    </div>
+                </div>
+                <p class="portfolio-description">这是我精心准备的作品集PDF文档，展示了我的项目经验、专业技能和创意理念。通过这份作品集，您可以全面了解我的专业背景和设计能力。</p>
                 <div class="pdf-container">
+                    <div class="pdf-header">
+                        <span class="pdf-title">作品集预览</span>
+                        <div class="pdf-controls">
+                            <button class="control-btn" title="全屏查看"><i class="fas fa-expand"></i></button>
+                        </div>
+                    </div>
                     <iframe src="test_work.pdf" width="100%" height="600px"></iframe>
                 </div>
-                <div class="download-button">
-                    <a href="test_work.pdf" download>下载PDF</a>
+                <div class="action-buttons">
+                    <a href="test_work.pdf" download class="download-button"><i class="fas fa-download"></i> 下载PDF</a>
+                    <button class="share-button"><i class="fas fa-share-alt"></i> 分享</button>
                 </div>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <h2><i class="fas fa-user"></i> 关于我</h2>
+            <div class="about-content">
+                <p>我是一位充满激情的专业人士，致力于创造高质量的作品。我的专业领域包括设计、开发和创意表达。</p>
+                <p>通过这个作品集网站，我希望展示我的技能和项目经验，并与您分享我的专业旅程。</p>
             </div>
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 我的作品集. 保留所有权利。</p>
+        <div class="footer-content">
+            <div class="footer-info">
+                <p>&copy; 2023 我的作品集. 保留所有权利。</p>
+            </div>
+            <div class="footer-social">
+                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
+            </div>
+        </div>
     </footer>
+    
+    <script>
+        // 添加简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            // 全屏按钮功能
+            const fullscreenBtn = document.querySelector('.control-btn');
+            const pdfIframe = document.querySelector('.pdf-container iframe');
+            
+            fullscreenBtn.addEventListener('click', function() {
+                if (pdfIframe.requestFullscreen) {
+                    pdfIframe.requestFullscreen();
+                } else if (pdfIframe.webkitRequestFullscreen) { /* Safari */
+                    pdfIframe.webkitRequestFullscreen();
+                } else if (pdfIframe.msRequestFullscreen) { /* IE11 */
+                    pdfIframe.msRequestFullscreen();
+                }
+            });
+            
+            // 分享按钮功能
+            const shareButton = document.querySelector('.share-button');
+            shareButton.addEventListener('click', function() {
+                alert('分享功能即将上线！');
+            });
+            
+            // 添加页面加载动画
+            document.body.classList.add('loaded');
+        });
+    </script>
 </body>
 </html>
