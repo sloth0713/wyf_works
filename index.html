@@ -3,96 +3,169 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的作品集</title>
+    <title>wyf作品集</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1><i class="fas fa-book-open"></i> 我的作品集</h1>
-            <p class="tagline">创意 · 专业 · 品质</p>
+    <!-- 侧边栏 -->
+    <aside class="sidebar">
+        <div class="sidebar-profile">
+            <div class="profile-image">
+                <img src="miniqiuhead.jpg" alt="个人头像">
+            </div>
+            <h2 class="profile-name">wyf作品集</h2>
+            <p class="profile-bio">个人作品展示平台</p>
         </div>
-    </header>
-    <main>
-        <section class="portfolio-section">
-            <h2><i class="fas fa-trophy"></i> 作品展示</h2>
-            <div class="portfolio-item">
-                <div class="portfolio-header">
-                    <h3><i class="fas fa-file-pdf"></i> 作品集文档</h3>
-                    <div class="portfolio-tags">
-                        <span class="tag">专业</span>
-                        <span class="tag">创意</span>
-                        <span class="tag">设计</span>
-                    </div>
+        <div class="sidebar-info">
+            <div class="education-item">
+                <div class="edu-icon">
+                    <i class="fas fa-graduation-cap"></i>
                 </div>
-                <p class="portfolio-description">这是我精心准备的作品集PDF文档，展示了我的项目经验、专业技能和创意理念。通过这份作品集，您可以全面了解我的专业背景和设计能力。</p>
-                <div class="pdf-container">
-                    <div class="pdf-header">
-                        <span class="pdf-title">作品集预览</span>
-                        <div class="pdf-controls">
-                            <button class="control-btn" title="全屏查看"><i class="fas fa-expand"></i></button>
-                        </div>
-                    </div>
-                    <iframe src="test_work.pdf" width="100%" height="600px"></iframe>
-                </div>
-                <div class="action-buttons">
-                    <a href="test_work.pdf" download class="download-button"><i class="fas fa-download"></i> 下载PDF</a>
-                    <button class="share-button"><i class="fas fa-share-alt"></i> 分享</button>
+                <div class="edu-details">
+                    <div class="edu-degree">本科</div>
+                    <div class="edu-school">昆明理工大学建筑学</div>
                 </div>
             </div>
-        </section>
+            <div class="education-item">
+                <div class="edu-icon">
+                    <i class="fas fa-user-graduate"></i>
+                </div>
+                <div class="edu-details">
+                    <div class="edu-degree">研究生</div>
+                    <div class="edu-school">东南大学建筑学</div>
+                </div>
+            </div>
+            <div class="contact-section">
+                <h4>联系方式</h4>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div class="contact-info">email@example.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div class="contact-info">+86 123 4567 8910</div>
+                </div>
+
+            </div>
+        </div>
+        <nav class="sidebar-menu">
+            <ul>
+                <li><a href="https://github.com/sloth0713/wyf_works" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+            </ul>
+        </nav>
+
+    </aside>
+
+    <!-- 主内容区域 -->
+    <div class="main-content">
+        <!-- 移动端顶部导航 -->
+        <header class="header">
+            <div class="header-inner">
+                <div class="header-title">
+                    <h1>wyf作品集</h1>
+                    <p>个人作品展示平台</p>
+                </div>
+                <button class="menu-toggle" id="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 内容区域 -->
+        <div class="content">
+            <article class="post">
+                <header class="post-header">
+                    <h1 class="post-title">wyf作品集</h1>
+                    <div class="post-meta">
+                        <span><i class="far fa-calendar"></i> 2025年8月16日</span>
+                        <span><i class="far fa-user"></i> 作者：wyf</span>
+                    </div>
+                    <div class="post-tags">
+                        <a href="#" class="tag">建筑</a>
+                        <a href="#" class="tag">设计</a>
+                        <a href="#" class="tag">保护</a>
+                        <a href="#" class="tag">作品</a>
+                    </div>
+                </header>
+                
+                <div class="post-cover">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1200' height='600' viewBox='0 0 1200 600'%3E%3Crect width='1200' height='600' fill='%235a8fd6'/%3E%3Ctext x='600' y='300' font-size='32' text-anchor='middle' alignment-baseline='middle' font-family='Arial, sans-serif' fill='%23ffffff'%3E文章封面图片%3C/text%3E%3C/svg%3E" alt="文章封面">
+                </div>
+                
+                <div class="post-content">
+                     <div class="pdf-container">
+                         <div class="pdf-header">
+                             <span class="pdf-title">wyf作品集</span>
+                             <div class="pdf-controls">
+                                 <button class="control-btn" id="fullscreen-btn" title="全屏查看"><i class="fas fa-expand"></i></button>
+                             </div>
+                         </div>
+                         <iframe src="test_work.pdf" width="100%" height="650px"></iframe>
+                     </div>
+                     
+                     <div class="action-buttons">
+                         <a href="test_work.pdf" download class="download-button"><i class="fas fa-download"></i> 下载wyf作品集</a>
+                     </div>
+                 </div>
+             </article>
+        </div>
         
-        <section class="about-section">
-            <h2><i class="fas fa-user"></i> 关于我</h2>
-            <div class="about-content">
-                <p>我是一位充满激情的专业人士，致力于创造高质量的作品。我的专业领域包括设计、开发和创意表达。</p>
-                <p>通过这个作品集网站，我希望展示我的技能和项目经验，并与您分享我的专业旅程。</p>
+        <!-- 页脚 -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-copyright">
+                    &copy; 2025 wyf作品集. 保留所有权利.
+                </div>
             </div>
-        </section>
-    </main>
-    <footer>
-        <div class="footer-content">
-            <div class="footer-info">
-                <p>&copy; 2023 我的作品集. 保留所有权利。</p>
-            </div>
-            <div class="footer-social">
-                <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-behance"></i></a>
-            </div>
-        </div>
-    </footer>
-    
+        </footer>
+    </div>
+
     <script>
-        // 添加简单的交互效果
-        document.addEventListener('DOMContentLoaded', function() {
-            // 全屏按钮功能
-            const fullscreenBtn = document.querySelector('.control-btn');
-            const pdfIframe = document.querySelector('.pdf-container iframe');
-            
-            fullscreenBtn.addEventListener('click', function() {
-                if (pdfIframe.requestFullscreen) {
-                    pdfIframe.requestFullscreen();
-                } else if (pdfIframe.webkitRequestFullscreen) { /* Safari */
-                    pdfIframe.webkitRequestFullscreen();
-                } else if (pdfIframe.msRequestFullscreen) { /* IE11 */
-                    pdfIframe.msRequestFullscreen();
-                }
-            });
-            
-            // 分享按钮功能
-            const shareButton = document.querySelector('.share-button');
-            shareButton.addEventListener('click', function() {
-                alert('分享功能即将上线！');
-            });
-            
-            // 添加页面加载动画
+        // 页面加载完成后添加loaded类
+        window.addEventListener('load', function() {
             document.body.classList.add('loaded');
+            
+            // 在页面完全加载后初始化所有事件
+            initializeEvents();
         });
+        
+        function initializeEvents() {
+            // 移动端菜单切换
+            const menuToggle = document.getElementById('menu-toggle');
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    document.querySelector('.sidebar').classList.toggle('active');
+                });
+            }
+            
+            // 全屏查看PDF
+            const fullscreenBtn = document.getElementById('fullscreen-btn');
+            if (fullscreenBtn) {
+                fullscreenBtn.addEventListener('click', function() {
+                    const iframe = document.querySelector('.pdf-container iframe');
+                    if (iframe && iframe.requestFullscreen) {
+                        iframe.requestFullscreen();
+                    } else if (iframe && iframe.webkitRequestFullscreen) { /* Safari */
+                        iframe.webkitRequestFullscreen();
+                    } else if (iframe && iframe.msRequestFullscreen) { /* IE11 */
+                        iframe.msRequestFullscreen();
+                    }
+                });
+            }
+            
+
+        }
     </script>
+    
+
+
 </body>
 </html>
