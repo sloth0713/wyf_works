@@ -497,6 +497,77 @@ body.loaded {
     gap: 0.5rem;
 }
 
+/* 图片展示区域样式 */
+.gallery-container {
+    margin: 2rem 0 3rem;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+}
+
+.gallery-title {
+    font-family: 'Merriweather', serif;
+    font-size: 1.8rem;
+    color: var(--secondary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.gallery-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-item {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: var(--transition);
+    position: relative;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-item-caption {
+    padding: 1rem;
+    background-color: white;
+    font-weight: 600;
+    color: var(--secondary-color);
+    text-align: center;
+}
+
 .post-tags {
     margin-bottom: 1.5rem;
     display: flex;
@@ -661,6 +732,10 @@ body.loaded {
         grid-template-columns: repeat(2, 1fr);
     }
     
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
     .modal-content {
         width: 90%;
         padding: 20px;
@@ -737,6 +812,19 @@ body.loaded {
     
     .post-gallery {
         grid-template-columns: 1fr;
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .gallery-container {
+        padding: 1.5rem;
+        margin: 1.5rem 0 2.5rem;
+    }
+    
+    .gallery-title {
+        font-size: 1.5rem;
     }
     
     .footer-content {
