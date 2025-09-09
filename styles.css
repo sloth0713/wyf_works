@@ -16,7 +16,7 @@
     --text-color: #4a4a4a;
     --text-light: #7a7a7a;
     --background-color: #f5f5f5;
-    --sidebar-width: 280px;
+    --sidebar-width: 220px;
     --shadow-sm: 0 2px 5px rgba(0,0,0,0.1);
     --shadow-md: 0 4px 8px rgba(0,0,0,0.12);
     --shadow-lg: 0 10px 20px rgba(0,0,0,0.15);
@@ -64,9 +64,9 @@ body.loaded {
 }
 
 .profile-image {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 1.5rem;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 1.2rem;
     border-radius: 50%;
     overflow: hidden;
     border: 3px solid rgba(255, 255, 255, 0.2);
@@ -79,7 +79,7 @@ body.loaded {
 }
 
 .profile-name {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
@@ -182,12 +182,12 @@ body.loaded {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 1rem;
+    margin-right: 0.8rem;
 }
 
 .edu-icon i {
     color: var(--primary-color);
-    font-size: 1rem;
+    font-size: 0.9rem;
 }
 
 .edu-details {
@@ -221,11 +221,11 @@ body.loaded {
 
 .sidebar-menu a {
     display: block;
-    padding: 0.8rem 1.5rem;
+    padding: 0.7rem 1.2rem;
     color: rgba(255, 255, 255, 0.8);
     text-decoration: none;
     transition: var(--transition);
-    font-size: 1rem;
+    font-size: 0.95rem;
 }
 
 .sidebar-menu a:hover,
@@ -235,8 +235,8 @@ body.loaded {
 }
 
 .sidebar-menu a i {
-    margin-right: 0.8rem;
-    width: 20px;
+    margin-right: 0.6rem;
+    width: 18px;
     text-align: center;
 }
 
@@ -311,9 +311,11 @@ body.loaded {
 }
 
 .content {
-    padding: 3rem 2rem;
-    max-width: 900px;
+    padding: 3rem 0;
+    max-width: 1100px;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* 文章样式 */
@@ -471,7 +473,8 @@ body.loaded {
 }
 
 .post-header {
-    padding: 2rem 2rem 0;
+    padding: 2rem 0 0;
+    text-align: center;
 }
 
 .post-title {
@@ -480,6 +483,7 @@ body.loaded {
     color: var(--secondary-color);
     margin-bottom: 1rem;
     line-height: 1.3;
+    text-align: center;
 }
 
 .post-meta {
@@ -489,6 +493,7 @@ body.loaded {
     margin-bottom: 1.5rem;
     color: var(--text-light);
     font-size: 0.9rem;
+    justify-content: center;
 }
 
 .post-meta span {
@@ -500,11 +505,14 @@ body.loaded {
 /* 图片展示区域样式 */
 .gallery-container {
     margin: 2rem 0 3rem;
-    padding: 2rem;
+    padding: 0;
     background-color: white;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: var(--transition);
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .gallery-title {
@@ -514,7 +522,7 @@ body.loaded {
     margin-bottom: 1.5rem;
     text-align: center;
     position: relative;
-    padding-bottom: 1rem;
+    padding: 1.5rem 0 1rem 0;
 }
 
 .gallery-title::after {
@@ -528,51 +536,52 @@ body.loaded {
     background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
 }
 
-.gallery-grid {
+.post-content .gallery-container .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin: 2rem 0;
+    padding: 0 0 1.5rem 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .gallery-item {
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     transition: var(--transition);
     position: relative;
+    margin: 0 auto;
+    max-width: 100%;
 }
 
 .gallery-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .gallery-item img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: auto;
+    max-height: 600px;
+    object-fit: contain;
     display: block;
     transition: transform 0.5s ease;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
-.gallery-item-caption {
-    padding: 1rem;
-    background-color: white;
-    font-weight: 600;
-    color: var(--secondary-color);
-    text-align: center;
-}
+
 
 .post-tags {
     margin-bottom: 1.5rem;
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
+    justify-content: center;
 }
 
 .post-tags .tag {
@@ -595,12 +604,14 @@ body.loaded {
     width: 100%;
     height: 400px;
     overflow: hidden;
+    background-color: var(--background-color);
 }
 
 .post-cover img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+    max-width: 100%;
+    max-height: 400px;
+    display: block;
+    margin: 0 auto;
     transition: var(--transition);
 }
 
@@ -609,9 +620,12 @@ body.loaded {
 }
 
 .post-content {
-    padding: 2rem;
+    padding: 0;
     color: var(--text-color);
     line-height: 1.8;
+    width: 100%;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
 .post-content p {
@@ -634,12 +648,14 @@ body.loaded {
     gap: 1rem;
     margin: 2rem 0;
 }
-
 .gallery-item {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
     transition: var(--transition);
+    position: relative;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .gallery-item:hover {
@@ -650,7 +666,7 @@ body.loaded {
 .gallery-item img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     transition: var(--transition);
 }
 
@@ -659,7 +675,7 @@ body.loaded {
 }
 
 .post-footer {
-    padding: 1.5rem 2rem;
+    padding: 1.5rem 0;
     border-top: 1px solid var(--border-color);
     display: flex;
     justify-content: space-between;
@@ -694,7 +710,7 @@ body.loaded {
 }
 
 .footer-content {
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -726,20 +742,250 @@ body.loaded {
 
 
 
+/* 弹出窗口通用样式 */
+.info-icon {
+    flex: 0 0 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.info-list {
+    margin-top: 20px;
+}
+
+.modal .info-item {
+    display: flex;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    align-items: flex-start;
+}
+
+.modal .info-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.info-details h3 {
+    margin: 0 0 10px 0;
+    color: var(--secondary-color);
+}
+
+/* 竞赛经历弹出窗口样式 */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--light-color);
+    margin: 10% auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: var(--shadow-lg);
+    width: 70%;
+    max-width: 800px;
+    position: relative;
+    animation: modalFadeIn 0.4s ease;
+}
+
+@keyframes modalFadeIn {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: var(--gray-color);
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.modal-close:hover {
+    color: var(--accent-color);
+}
+
+.competition-list {
+    margin-top: 20px;
+}
+
+.competition-item {
+    display: flex;
+    margin-bottom: 25px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.competition-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.competition-icon {
+    flex: 0 0 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    margin-right: 20px;
+}
+
+.competition-details h3 {
+    margin: 0 0 10px 0;
+    color: var(--secondary-color);
+}
+
+.competition-date {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 5px;
+}
+
+.competition-award {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.competition-description {
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
 /* 响应式设计 */
 @media (max-width: 1024px) {
     .post-gallery {
         grid-template-columns: repeat(2, 1fr);
     }
     
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .post-content .gallery-container .gallery-grid {
+        grid-template-columns: 1fr !important;
     }
     
     .modal-content {
         width: 90%;
         padding: 20px;
     }
+}
+
+/* 图片查看器样式 */
+.image-viewer {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding: 0;
+    overflow: hidden;
+}
+
+.image-content {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin: 0 auto;
+    cursor: zoom-in;
+    transform-origin: center center;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1001;
+    transition: 0.3s;
+}
+
+.close:hover {
+    color: var(--accent-color);
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+    box-sizing: border-box;
+    pointer-events: none; /* 防止导航按钮阻挡图片点击 */
+}
+
+.nav-btn {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    pointer-events: auto; /* 确保按钮可点击 */
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.gallery-item img {
+    cursor: pointer;
+}
+
+.loader {
+    display: none;
+    position: absolute;
+    color: white;
+    font-size: 40px;
+    z-index: 1002;
 }
 
 @media (max-width: 768px) {
@@ -795,7 +1041,8 @@ body.loaded {
     }
     
     .content {
-        padding: 2rem 1.5rem;
+        padding: 2rem 1rem;
+        max-width: 100%;
     }
     
     .post-title {
@@ -814,17 +1061,23 @@ body.loaded {
         grid-template-columns: 1fr;
     }
     
-    .gallery-grid {
-        grid-template-columns: 1fr;
+    .post-content .gallery-container .gallery-grid {
+        grid-template-columns: 1fr !important;
+        gap: 2.5rem;
     }
     
     .gallery-container {
-        padding: 1.5rem;
-        margin: 1.5rem 0 2.5rem;
+        padding: 1rem 0;
+        margin: 1rem 0 2rem;
     }
     
     .gallery-title {
         font-size: 1.5rem;
+    }
+    
+    .gallery-item img {
+        height: 250px;
+        object-fit: contain;
     }
     
     .footer-content {
@@ -836,11 +1089,12 @@ body.loaded {
 
 @media (max-width: 480px) {
     .content {
-        padding: 1.5rem 1rem;
+        padding: 1.5rem 0;
+        max-width: 100%;
     }
     
     .post-header {
-        padding: 1.5rem 1.5rem 0;
+        padding: 1.5rem 0 0;
     }
     
     .post-title {
@@ -851,6 +1105,7 @@ body.loaded {
         flex-direction: column;
         gap: 0.5rem;
         margin-bottom: 1rem;
+        align-items: center;
     }
     
     .post-content {
@@ -865,5 +1120,51 @@ body.loaded {
         flex-direction: column;
         gap: 1rem;
         align-items: flex-start;
+    }
+    
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .close {
+        top: 10px;
+        right: 15px;
+        font-size: 30px;
+    }
+    
+    .image-content {
+        max-width: 95%;
+        max-height: 85%;
+    }
+    
+    /* 移动端竞赛经历弹窗样式 */
+    .modal-content {
+        width: 95%;
+        margin: 15% auto;
+        padding: 20px 15px;
+    }
+    
+    .competition-item {
+        flex-direction: column;
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    
+    .competition-icon {
+        margin-bottom: 15px;
+        margin-right: 0;
+        align-self: center;
+    }
+    
+    .competition-details h3 {
+        text-align: center;
+        font-size: 1.2rem;
+    }
+    
+    .competition-date,
+    .competition-award {
+        text-align: center;
     }
 }
