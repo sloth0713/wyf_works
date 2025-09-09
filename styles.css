@@ -756,6 +756,13 @@ body.loaded {
     margin-right: 20px;
 }
 
+.info-icon i {
+    color: white;
+    /* 确保图标颜色为白色，与背景形成对比 */
+    text-shadow: 0 0 2px rgba(0,0,0,0.3);
+    /* 添加轻微阴影增强可见度 */
+}
+
 .info-list {
     margin-top: 20px;
 }
@@ -855,6 +862,13 @@ body.loaded {
     justify-content: center;
     font-size: 24px;
     margin-right: 20px;
+}
+
+.competition-icon i {
+    color: white;
+    /* 确保图标颜色为白色，与背景形成对比 */
+    text-shadow: 0 0 2px rgba(0,0,0,0.3);
+    /* 添加轻微阴影增强可见度 */
 }
 
 .competition-details h3 {

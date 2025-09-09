@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- 外圆 -->
+  <circle cx="50" cy="50" r="48" fill="#ffcc00" stroke="#006633" stroke-width="2"/>
+  <!-- 内圆 -->
+  <circle cx="50" cy="50" r="40" fill="#006633" stroke="#ffcc00" stroke-width="1"/>
+  <!-- 倒三角 -->
+  <path d="M50 15 L80 70 L20 70 Z" fill="#ffcc00" stroke="#ffcc00" stroke-width="1"/>
+  <!-- 文字 -->
+  <text x="50" y="85" font-family="Arial" font-size="10" text-anchor="middle" fill="#ffcc00">SEU</text>
+</svg>
