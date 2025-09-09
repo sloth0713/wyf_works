@@ -190,11 +190,53 @@
         function initializeEvents() {
             // 移动端菜单切换
             const menuToggle = document.getElementById('menu-toggle');
-            if (menuToggle) {
-                menuToggle.addEventListener('click', function() {
-                    document.querySelector('.sidebar').classList.toggle('active');
+            const sidebar = document.querySelector('.sidebar');
+            
+            if (menuToggle && sidebar) {
+                menuToggle.addEventListener('click', function(e) {
+                    e.stopPropagation(); // 阻止事件冒泡
+                    sidebar.classList.toggle('active');
                 });
             }
+            
+            // 点击侧边栏上方区域（个人资料区）关闭侧边栏
+            const sidebarProfile = document.querySelector('.sidebar-profile');
+            if (sidebarProfile) {
+                sidebarProfile.addEventListener('click', function() {
+                    // 检查当前是否为移动视图（通过检查菜单按钮是否可见）
+                    if (window.getComputedStyle(document.getElementById('menu-toggle')).display !== 'none') {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 点击侧边栏链接后关闭侧边栏
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    // 检查当前是否为移动视图（通过检查菜单按钮是否可见）
+                    if (window.getComputedStyle(document.getElementById('menu-toggle')).display !== 'none') {
+                        sidebar.classList.remove('active');
+                    }
+                });
+            });
+            
+            // 点击侧边栏外部区域关闭侧边栏
+            document.addEventListener('click', function(e) {
+                // 如果点击的不是侧边栏内部元素，也不是菜单按钮，且侧边栏处于打开状态
+                if (!sidebar.contains(e.target) && e.target !== menuToggle && sidebar.classList.contains('active')) {
+                    sidebar.classList.remove('active');
+                }
+            });
+            
+            // 按ESC键关闭侧边栏
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    if (sidebar.classList.contains('active')) {
+                        sidebar.classList.remove('active');
+                    }
+                }
+            });
         }
     </script>
     
@@ -231,7 +273,21 @@
                 imageSources.push(item.src);
                 
                 // 为每个图片添加点击事件
-                item.addEventListener('click', function() {
+                item.addEventListener('click', function(e) {
+                    // 检查是否为移动视图
+                    const isMobileView = window.getComputedStyle(document.getElementById('menu-toggle')).display !== 'none';
+                    // 检查侧边栏是否处于打开状态
+                    const sidebar = document.querySelector('.sidebar');
+                    const isSidebarOpen = sidebar && sidebar.classList.contains('active');
+                    
+                    // 如果是移动视图且侧边栏打开，则只关闭侧边栏，不显示图片
+                    if (isMobileView && isSidebarOpen) {
+                        e.preventDefault();
+                        sidebar.classList.remove('active');
+                        return;
+                    }
+                    
+                    // 正常显示图片
                     currentIndex = imageSources.indexOf(this.src);
                     showImage(currentIndex);
                     imageViewer.style.display = 'flex';
