@@ -425,7 +425,8 @@ body.loaded {
 .action-buttons {
     display: flex;
     gap: 1rem;
-    margin: 2rem 0;
+    margin: 0;
+    padding: 1rem 0;
     flex-wrap: wrap;
     justify-content: center;
 }
@@ -504,7 +505,7 @@ body.loaded {
 
 /* 图片展示区域样式 */
 .gallery-container {
-    margin: 2rem 0 3rem;
+    margin: 0;
     padding: 0;
     background-color: white;
     border-radius: 12px;
@@ -540,8 +541,8 @@ body.loaded {
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.5rem;
-    margin: 2rem 0;
-    padding: 0 0 1.5rem 0;
+    margin: 0;
+    padding: 0;
     width: 100%;
     box-sizing: border-box;
 }
@@ -1081,8 +1082,8 @@ body.loaded {
     }
     
     .gallery-container {
-        padding: 1rem 0;
-        margin: 1rem 0 2rem;
+        padding: 0;
+        margin: 0;
     }
     
     .gallery-title {
